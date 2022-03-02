@@ -2,3 +2,66 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  background: #ff7676;
+  font-family: Dosis, sans-serif;
+  color: white;
+  font-weight: 600;
+}
+
+.answerBtn {
+  border: none;
+  color: white;
+  background-color: rgba(255, 66, 66, 65);
+  width: 200px;
+  height: 85px;
+  border-radius: 6px;
+  font-size: 48px;
+  text-align: center;
+  font-family: Dosis, sans-serif;
+  /* margin: 0 81px; */
+  margin: 12px 81px;
+}
+
+img {
+  color: white;
+  filter: invert(1);
+}
+
+#optionsBtn {
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  color: white;
+}
+
+#questionEl {
+  font-size: 288px;
+  font-weight: 400;
+  text-align: center;
+  color: white;
+  line-height: 364px;
+  margin: 25px 0;
+}
+
+#navBar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 15px;
+}
+
+.answerBtns {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 25px;
+  justify-content: center;
+}
+
+@media (min-width: 750px) {
+  #questionEl {
+    margin: 100px 0;
+  }
+  .answerBtns {
+    margin-top: 150px;
+  }
+}

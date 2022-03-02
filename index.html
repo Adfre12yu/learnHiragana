@@ -4,23 +4,30 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/index.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <title>learnHiragana</title>
   </head>
   <body>
     <div id="navBar">
       <h1>learnHiragana</h1>
-      <button>
+      <button id="optionsBtn">
         <img src="images/bxs-cog.svg" alt="Options" />
       </button>
     </div>
 
-    <h2 id="questionEl">あ</h2>
+    <div class="mainDiv">
+      <h2 id="questionEl">あ</h2>
+    </div>
 
-    <div>
-      <button id="answerOne">ha</button>
-      <button id="answerTwo">o</button>
-      <button id="answerThree">a</button>
-      <button id="answerFour">ni</button>
+    <div class="answerBtns">
+      <button id="answerOne" class="answerBtn">ha</button>
+      <button id="answerTwo" class="answerBtn">o</button>
+      <button id="answerThree" class="answerBtn">a</button>
+      <button id="answerFour" class="answerBtn">ni</button>
     </div>
   </body>
 </html>
