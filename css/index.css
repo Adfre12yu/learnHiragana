@@ -14,13 +14,13 @@ body {
   border: none;
   color: white;
   background-color: rgba(255, 66, 66, 65);
-  width: 200px;
-  height: 85px;
+  width: 22.5vmin;
+  height: 9vmin;
   border-radius: 6px;
-  font-size: 48px;
+  font-size: 5vmin;
   text-align: center;
   font-family: Dosis, sans-serif;
-  margin: 12px 81px;
+  margin: 1.2vh 4vw;
 }
 
 button {
@@ -63,24 +63,33 @@ img {
 }
 
 #questionEl {
-  font-size: 288px;
+  font-size: 32vmin;
   font-weight: 400;
   text-align: center;
   color: white;
-  line-height: 364px;
-  margin: 100px 0;
+  line-height: 40.5vmin;
+  margin: 7vh 0;
   pointer-events: none;
 }
 
 #navBar {
   display: flex;
   justify-content: space-between;
-  padding: 15px 15px;
+  padding: 1.5vh;
 }
 
 .answerBtns {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 150px;
+  margin-top: 15vh;
   justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+h1 {
+  font-size: 4vmin;
 }
