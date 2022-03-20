@@ -3,6 +3,9 @@ const btnOne = document.getElementById("answerOne");
 const btnTwo = document.getElementById("answerTwo");
 const btnThree = document.getElementById("answerThree");
 const btnFour = document.getElementById("answerFour");
+const body = document.getElementById("body");
+const correctAu = new Audio("audio/correct.wav");
+const wrongAu = new Audio("audio/wrong.wav");
 
 const buttons = {
   1: btnOne,
@@ -95,13 +98,70 @@ function newQuestion() {
   for (let i = 1; i < 5; i++) {
     if (i == rightBtn) {
       buttons[rightBtn].textContent = Object.values(questions)[question];
+      buttons[rightBtn].classList.add("correct");
     } else {
-      wrongAnswer = Math.floor(Math.random() * copy.length);
+      let wrongAnswer = Math.floor(Math.random() * copy.length);
       buttons[i].textContent = copy[wrongAnswer];
       copy.splice(wrongAnswer, 1);
     }
   }
   question_el.textContent = reversed[buttons[rightBtn].textContent];
 }
+
+function correctAnswer() {
+  for (let i = 1; i < 5; i++) {
+    if (buttons[i].classList.contains("correct")) {
+      buttons[i].classList.remove("correct");
+      buttons[i].classList.add("greenBtn");
+    }
+  }
+
+  correctAu.play();
+
+  setTimeout(function () {
+    body.classList.remove("greenBackground");
+    for (let i = 1; i < 5; i++) {
+      buttons[i].classList.remove("greenBtn");
+    }
+    newQuestion();
+  }, 500);
+}
+
+function wrongAnswer() {
+  for (let i = 1; i < 5; i++) {
+    buttons[i].classList.remove("correct");
+  }
+  wrongAu.play();
+  newQuestion();
+}
+
+btnOne.addEventListener("click", function () {
+  if (btnOne.classList.contains("correct")) {
+    correctAnswer();
+  } else {
+    wrongAnswer();
+  }
+});
+btnTwo.addEventListener("click", function () {
+  if (btnTwo.classList.contains("correct")) {
+    correctAnswer();
+  } else {
+    wrongAnswer();
+  }
+});
+btnThree.addEventListener("click", function () {
+  if (btnThree.classList.contains("correct")) {
+    correctAnswer();
+  } else {
+    wrongAnswer();
+  }
+});
+btnFour.addEventListener("click", function () {
+  if (btnFour.classList.contains("correct")) {
+    correctAnswer();
+  } else {
+    wrongAnswer();
+  }
+});
 
 newQuestion();

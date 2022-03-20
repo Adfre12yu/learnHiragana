@@ -8,6 +8,7 @@ body {
   font-family: Dosis, sans-serif;
   color: white;
   font-weight: 600;
+  transition: all 500ms;
 }
 
 .answerBtn {
@@ -92,4 +93,12 @@ img {
 }
 h1 {
   font-size: 4vmin;
+}
+
+.greenBackground {
+  background: #7bff76;
+}
+
+.greenBtn {
+  background-color: rgb(75, 233, 96, 65);
 }
