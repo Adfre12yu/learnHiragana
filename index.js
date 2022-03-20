@@ -106,7 +106,6 @@ function newQuestion() {
     }
   }
   question_el.textContent = reversed[buttons[rightBtn].textContent];
-  console.log("newQuestion");
 }
 
 function correctAnswer() {
@@ -126,7 +125,6 @@ function correctAnswer() {
     }
     newQuestion();
   }, 500);
-  console.log("correctAnswer");
 }
 
 function wrongAnswer() {
@@ -135,7 +133,6 @@ function wrongAnswer() {
   }
   wrongAu.play();
   newQuestion();
-  console.log("wrongAnswer");
 }
 
 btnOne.addEventListener("click", function () {
