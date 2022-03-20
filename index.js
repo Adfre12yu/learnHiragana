@@ -129,10 +129,21 @@ function correctAnswer() {
 
 function wrongAnswer() {
   for (let i = 1; i < 5; i++) {
-    buttons[i].classList.remove("correct");
+    if (buttons[i].classList.contains("correct")) {
+      buttons[i].classList.remove("correct");
+      buttons[i].classList.add("greenBtn");
+    }
   }
+
   wrongAu.play();
-  newQuestion();
+
+  setTimeout(function () {
+    body.classList.remove("greenBackground");
+    for (let i = 1; i < 5; i++) {
+      buttons[i].classList.remove("greenBtn");
+    }
+    newQuestion();
+  }, 500);
 }
 
 btnOne.addEventListener("click", function () {
