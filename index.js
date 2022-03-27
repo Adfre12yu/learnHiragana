@@ -6,6 +6,7 @@ const btnFour = document.getElementById("answerFour");
 const body = document.getElementById("body");
 const correctAu = new Audio("audio/correct.wav");
 const wrongAu = new Audio("audio/wrong.wav");
+let canAnswer = true;
 
 const buttons = {
   1: btnOne,
@@ -109,6 +110,7 @@ function newQuestion() {
 }
 
 function correctAnswer() {
+  canAnswer = false;
   for (let i = 1; i < 5; i++) {
     if (buttons[i].classList.contains("correct")) {
       buttons[i].classList.remove("correct");
@@ -124,10 +126,12 @@ function correctAnswer() {
       buttons[i].classList.remove("greenBtn");
     }
     newQuestion();
+    canAnswer = true;
   }, 500);
 }
 
 function wrongAnswer() {
+  canAnswer = false;
   for (let i = 1; i < 5; i++) {
     if (buttons[i].classList.contains("correct")) {
       buttons[i].classList.remove("correct");
@@ -143,35 +147,44 @@ function wrongAnswer() {
       buttons[i].classList.remove("greenBtn");
     }
     newQuestion();
+    canAnswer = true;
   }, 500);
 }
 
 btnOne.addEventListener("click", function () {
-  if (btnOne.classList.contains("correct")) {
-    correctAnswer();
-  } else {
-    wrongAnswer();
+  if (canAnswer) {
+    if (btnOne.classList.contains("correct")) {
+      correctAnswer();
+    } else {
+      wrongAnswer();
+    }
   }
 });
 btnTwo.addEventListener("click", function () {
-  if (btnTwo.classList.contains("correct")) {
-    correctAnswer();
-  } else {
-    wrongAnswer();
+  if (canAnswer) {
+    if (btnTwo.classList.contains("correct")) {
+      correctAnswer();
+    } else {
+      wrongAnswer();
+    }
   }
 });
 btnThree.addEventListener("click", function () {
-  if (btnThree.classList.contains("correct")) {
-    correctAnswer();
-  } else {
-    wrongAnswer();
+  if (canAnswer) {
+    if (btnThree.classList.contains("correct")) {
+      correctAnswer();
+    } else {
+      wrongAnswer();
+    }
   }
 });
 btnFour.addEventListener("click", function () {
-  if (btnFour.classList.contains("correct")) {
-    correctAnswer();
-  } else {
-    wrongAnswer();
+  if (canAnswer) {
+    if (btnFour.classList.contains("correct")) {
+      correctAnswer();
+    } else {
+      wrongAnswer();
+    }
   }
 });
 
