@@ -46,6 +46,7 @@ button {
 img {
   color: white;
   filter: invert(1);
+  width: 30px;
 }
 
 .content {
@@ -101,4 +102,47 @@ h1 {
 
 .greenBtn {
   background-color: rgb(75, 233, 96, 65);
+}
+
+#overlay {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+
+#settings {
+  margin: 0 auto;
+  height: 40%;
+  width: 40%;
+  background-color: #dd5151;
+  top: 25%;
+  position: relative;
+  border-radius: 10px;
+  padding: 0.1vh;
+}
+
+#closeBtn {
+  position: relative;
+  background: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+h3 {
+  color: rgb(255, 255, 255, 0.7);
+  text-align: center;
+  font-size: 2.5vmin;
+}
+
+#settings img {
+  width: 20px;
+}
+
+#settings h2 {
+  font-size: 3vmin;
 }

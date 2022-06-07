@@ -6,6 +6,9 @@ const btnFour = document.getElementById("answerFour");
 const body = document.getElementById("body");
 const correctAu = new Audio("audio/correct.wav");
 const wrongAu = new Audio("audio/wrong.wav");
+const optionsBtn = document.getElementById("optionsBtn");
+const closeBtn = document.getElementById("closeBtn");
+const overlay = document.getElementById("overlay");
 let canAnswer = true;
 
 const buttons = {
@@ -187,5 +190,10 @@ btnFour.addEventListener("click", function () {
     }
   }
 });
-
+optionsBtn.addEventListener("click", function () {
+  overlay.style.display = "block";
+});
+closeBtn.addEventListener("click", function () {
+  overlay.style.display = "none";
+});
 newQuestion();
