@@ -46,7 +46,7 @@ button {
 img {
   color: white;
   filter: invert(1);
-  width: 30px;
+  width: 4vmin;
 }
 
 .content {
@@ -140,7 +140,7 @@ h3 {
 }
 
 #settings img {
-  width: 20px;
+  width: 2.5vmin;
 }
 
 #settings h2 {
