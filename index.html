@@ -1,51 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="images/favicon.png">
-    <link href="css/index.css" rel="stylesheet" />
-    <title>learnHiragana</title>
-  </head>
-  <body id="body">
-    <div id="navBar">
-      <h1>learnHiragana</h1>
-      <button id="optionsBtn">
-        <img src="images/bxs-cog.svg" alt="Options" />
-      </button>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <script src="https://kit.fontawesome.com/80aa8800c1.js" crossorigin="anonymous"></script>
+        <link rel="icon" href="images/favicon.png" />
+        <link href="css/index.css" rel="stylesheet" />
+        <title>learnHiragana</title>
+    </head>
 
-    </div>
+    <body id="body">
+        <nav>
+            <h1>learnHiragana</h1>
+            <button id="options-btn">
+                <i class="fa-solid fa-gear bruh"></i>
+            </button>
+        </nav>
 
-    <div class="content">
-      <h2 id="questionEl"></h2>
-      <div class="answerBtns">
-        <div class="container">
-          <button id="answerOne" class="answerBtn"></button>
-          <button id="answerTwo" class="answerBtn"></button>
-        </div class="answerBtns">
-        <div class="container">
-          <button id="answerThree" class="answerBtn"></button>
-          <button id="answerFour" class="answerBtn"></button>
+        <div class="content">
+            <h2 id="question-el"></h2>
+            <div class="answer-btns">
+                <button id="answerOne" class="answer-btn"></button>
+                <button id="answerTwo" class="answer-btn"></button>
+                <button id="answerThree" class="answer-btn"></button>
+                <button id="answerFour" class="answer-btn"></button>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <div id="overlay">
-      <div id="settings">
-        <div id="navBar">
-        <h2 class="settings">Settings</h2>
-        <button id="closeBtn">
-          <img src="images/close.svg" alt="Close" />
-        </button>
+        <div id="overlay">
+            <div id="settings">
+                <div id="nav-bar">
+                    <h2 class="settings">Settings</h2>
+                    <button id="close-btn">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <h3>Nothing to see here yet...</h3>
+            </div>
         </div>
-        <h3>Nothing to see here yet...</h3>
-      </div>
-    </div>
-    <script src="index.js"></script>
-  </body>
+        <script src="index.js"></script>
+    </body>
 </html>

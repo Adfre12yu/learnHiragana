@@ -1,148 +1,137 @@
 * {
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: "Baloo 2", sans-serif;
+    text-align: center;
 }
 
 body {
-  background: #ff7676;
-  font-family: Dosis, sans-serif;
-  color: white;
-  font-weight: 600;
-  transition: all 500ms;
-}
-
-.answerBtn {
-  border: none;
-  color: white;
-  background-color: rgba(255, 66, 66, 65);
-  width: 22.5vmin;
-  height: 9vmin;
-  border-radius: 6px;
-  font-size: 5vmin;
-  text-align: center;
-  font-family: Dosis, sans-serif;
-  margin: 1.2vh 4vw;
+    height: 100vh;
+    background-color: #ff7676;
 }
 
 button {
-  cursor: pointer;
-  transition: all 200ms;
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    display: block;
+    cursor: pointer;
 }
 
-.answerBtn:hover {
-  transform: scale(1.1);
-  -webkit-box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 0px 30px 1px rgba(0, 0, 0, 0.2);
+.answer-btn {
+    background: rgba(255, 66, 66, 0.65);
+    border-radius: 6px;
+    transition: all 200ms;
 }
 
-.answerBtn:active {
-  transform: scale(0.95);
-  -webkit-box-shadow: 0px 0px 30px 1px rgba(255, 255, 255, 0);
-  -moz-box-shadow: 0px 0px 30px 1px rgba(255, 255, 255, 0);
-  box-shadow: 0px 0px 30px 1px rgba(255, 255, 255, 0);
+.answer-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 40px 7px rgba(0, 0, 0, 0.1);
 }
 
-img {
-  color: white;
-  filter: invert(1);
-  width: 4vmin;
-}
-
-.content {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none;
-}
-
-#optionsBtn {
-  background: rgba(0, 0, 0, 0);
-  border: none;
-  color: white;
-}
-
-#questionEl {
-  font-size: 32vmin;
-  font-weight: 400;
-  text-align: center;
-  color: white;
-  line-height: 40.5vmin;
-  margin: 7vh 0;
-  pointer-events: none;
-}
-
-#navBar {
-  display: flex;
-  justify-content: space-between;
-  padding: 1.5vh;
-}
-
-.answerBtns {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 15vh;
-  justify-content: center;
-}
-
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-h1 {
-  font-size: 4vmin;
-}
-
-.greenBackground {
-  background: #7bff76;
-}
-
-.greenBtn {
-  background-color: rgb(75, 233, 96, 65);
+.answer-btn:active {
+    transform: scale(0.95);
 }
 
 #overlay {
-  background: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  height: 100%;
-  width: 100%;
-  display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    top: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
 }
 
-#settings {
-  margin: 0 auto;
-  height: 40%;
-  width: 40%;
-  background-color: #dd5151;
-  top: 25%;
-  position: relative;
-  border-radius: 10px;
-  padding: 0.1vh;
+/* Typography */
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
 }
 
-#closeBtn {
-  position: relative;
-  background: rgba(0, 0, 0, 0);
-  border: none;
+h2 {
+    font-size: 2rem;
 }
 
 h3 {
-  color: rgb(255, 255, 255, 0.7);
-  text-align: center;
-  font-size: 2.5vmin;
+    margin-top: 3rem;
 }
 
-#settings img {
-  width: 2.5vmin;
+i {
+    font-size: 1.5rem;
 }
 
-#settings h2 {
-  font-size: 3vmin;
+.answer-btn {
+    font-size: 3rem;
+}
+
+#question-el {
+    font-size: 14rem;
+}
+
+/* Layout */
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.8em;
+    height: 4em;
+}
+
+.content {
+    height: calc(100vh - 4em);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.answer-btns {
+    display: grid;
+    row-gap: 2em;
+    justify-content: center;
+}
+
+.answer-btn {
+    width: 200px;
+    justify-self: center;
+}
+
+#settings {
+    background-color: #ff7676;
+    border-radius: 10px;
+    width: 80%;
+    height: 70%;
+}
+
+#nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2em 0.8em;
+}
+
+@media (orientation: landscape) and (max-width: 1200px) {
+    .answer-btns {
+        grid-template: 1fr 1fr / 1fr 1fr;
+        width: 80%;
+    }
+
+    .content {
+        justify-content: space-evenly;
+    }
+}
+
+@media (orientation: landscape) and (min-width: 1200px) {
+    .answer-btns {
+        grid-template-columns: repeat(4, 1fr);
+        width: 70%;
+    }
+
+    .content {
+        justify-content: space-evenly;
+    }
 }
