@@ -65,11 +65,11 @@ i {
 }
 
 .answer-btn {
-    font-size: 3rem;
+    font-size: clamp(2.2rem, 2.052rem + 0.79vw, 3rem);
 }
 
 #question-el {
-    font-size: 14rem;
+    font-size: clamp(10rem, 9.259rem + 3.95vw, 14rem);
 }
 
 /* Layout */
@@ -97,7 +97,8 @@ nav {
 }
 
 .answer-btn {
-    width: 200px;
+    width: 4em;
+    line-height: 1.5em;
     justify-self: center;
 }
 
