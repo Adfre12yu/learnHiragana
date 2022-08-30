@@ -20,13 +20,11 @@
 body {
     height: 100vh;
     height: var(--doc-height);
-    min-height: -webkit-fill-available;
     background-color: var(--main-color);
 }
 
 html {
     height: 100vh;
-    min-height: -webkit-fill-available;
     height: var(--doc-height);
 }
 

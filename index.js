@@ -200,6 +200,7 @@ closeBtn.addEventListener("click", function () {
 });
 
 window.addEventListener("resize", documentHeight);
+window.addEventListener("orientationchange", documentHeight);
 
 newQuestion();
 documentHeight();
