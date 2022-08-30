@@ -112,6 +112,7 @@ nav {
     display: grid;
     row-gap: 2em;
     justify-content: center;
+    margin-bottom: 1rem;
 }
 
 .answer-btn {
@@ -144,7 +145,7 @@ nav {
     }
 }
 
-@media (min-width: 1350px) {
+@media (min-width: 1000px) {
     .answer-btns {
         grid-template-columns: repeat(4, 1fr);
         width: 70%;
