@@ -110,6 +110,7 @@ nav {
     display: grid;
     row-gap: 2em;
     justify-content: center;
+    margin-bottom: 1rem;
 }
 
 .answer-btn {
