@@ -91,6 +91,11 @@ const questions = {
 };
 const reversed = Object.fromEntries(Object.entries(questions).map(([key, value]) => [value, key]));
 
+const documentHeight = () => {
+    const doc = document.documentElement;
+    doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
+};
+
 function newQuestion() {
     let question = Math.floor(Math.random() * 71);
     let rightBtn = Math.floor(Math.random() * 4) + 1;
@@ -193,12 +198,8 @@ optionsBtn.addEventListener("click", function () {
 closeBtn.addEventListener("click", function () {
     overlay.style.display = "none";
 });
-newQuestion();
 
-const documentHeight = () => {
-    const doc = document.documentElement;
-    doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
-    console.log("test");
-};
 window.addEventListener("resize", documentHeight);
+
+newQuestion();
 documentHeight();
