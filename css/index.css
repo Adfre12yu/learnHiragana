@@ -20,6 +20,10 @@ body {
     background-color: var(--main-color);
 }
 
+html {
+    min-height: -webkit-fill-available;
+}
+
 button {
     background: rgba(0, 0, 0, 0);
     border: none;
@@ -73,7 +77,6 @@ i {
 }
 
 .answer-btn {
-    /* font-size: clamp(2.2rem, 2.052rem + 0.79vw, 3rem); */
     font-size: var(--button-fs);
 }
 
@@ -124,7 +127,7 @@ nav {
     padding: 0.2em 0.8em;
 }
 
-@media (orientation: landscape) and (max-width: 1200px) {
+@media (min-width: 600px) {
     .answer-btns {
         grid-template: 1fr 1fr / 1fr 1fr;
         width: 80%;
@@ -135,7 +138,7 @@ nav {
     }
 }
 
-@media (orientation: landscape) and (min-width: 1200px) {
+@media (min-width: 1350px) {
     .answer-btns {
         grid-template-columns: repeat(4, 1fr);
         width: 70%;
