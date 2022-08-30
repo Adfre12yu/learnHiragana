@@ -94,7 +94,6 @@ const reversed = Object.fromEntries(Object.entries(questions).map(([key, value])
 const documentHeight = () => {
     const doc = document.documentElement;
     doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
-    console.log(window.innerHeight);
 };
 
 function newQuestion() {
