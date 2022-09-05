@@ -1,5 +1,4 @@
 import questions from "./data.js";
-import hexToHSL from "./hextohsl.js";
 const questionEl = document.getElementById("question-el");
 const optionsBtn = document.getElementById("options-btn");
 const closeBtn = document.getElementById("close-btn");
@@ -138,7 +137,6 @@ optionsBtn.addEventListener("click", function () {
 closeBtn.addEventListener("click", function () {
     overlay.style.opacity = 0;
     overlay.style.visibility = "hidden";
-    // error.play("pop-up");
 });
 resetBtn.addEventListener("click", () => {
     document.documentElement.style.setProperty("--main-color", "#ff7676");
