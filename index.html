@@ -7,21 +7,20 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&display=swap"
             rel="stylesheet"
         />
         <script src="https://kit.fontawesome.com/80aa8800c1.js" crossorigin="anonymous"></script>
         <link rel="icon" href="images/favicon.png" />
         <link href="css/index.css" rel="stylesheet" />
+        <script type="module" src="index.js" defer></script>
         <title>learnHiragana</title>
     </head>
 
     <body id="body">
         <nav>
             <h1>learnHiragana</h1>
-            <button id="options-btn">
-                <i class="fa-solid fa-gear bruh"></i>
-            </button>
+            <i id="options-btn" class="fa-solid fa-gear bruh"></i>
         </nav>
 
         <div class="content">
@@ -35,16 +34,31 @@
         </div>
 
         <div id="overlay">
-            <div id="settings">
-                <div id="nav-bar">
-                    <h2 class="settings">Settings</h2>
-                    <button id="close-btn">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
+            <div id="settings-div">
+                <nav>
+                    <h2>Settings</h2>
+                    <i id="close-btn" class="fa-solid fa-xmark"></i>
+                </nav>
+                <div id="settings">
+                    <div class="color">
+                        <label for="bg-color">Background Color:</label>
+                        <input type="text" placeholder="#FFFFFF" id="bg-color" />
+                        <input type="color" value="#FFFFFF" id="bg-color-swatch" />
+                    </div>
+                    <div class="color">
+                        <label for="sec-color">Secondary Color:</label>
+                        <input type="text" placeholder="#FFFFFF" id="sec-color" />
+                        <input type="color" value="#FFFFFF" id="sec-color-swatch" />
+                    </div>
+                    <div class="color">
+                        <label for="sec-color">Text Color:</label>
+                        <input type="text" placeholder="#FFFFFF" id="txt-color" />
+                        <input type="color" value="#FFFFFF" id="txt-color-swatch" />
+                    </div>
                 </div>
-                <h3>Nothing to see here yet...</h3>
+                <button id="reset-btn">Reset</button>
             </div>
+            <div id="error"><h3>Please enter a valid 6-digit hex-code.</h3></div>
         </div>
     </body>
-    <script type="module" src="index.js"></script>
 </html>
