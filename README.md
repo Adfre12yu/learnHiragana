@@ -4,7 +4,7 @@ This project takes a simple and minimalist approach to teaching japanese hiragan
 
 ## Features
 
-* Multiple-choice quiz
+* Multiple-choice quiz system (guessing romaji from hiragana)
 * Simplistic UI
 * Responsive Design
 * Customizable background color
@@ -15,6 +15,6 @@ This project takes a simple and minimalist approach to teaching japanese hiragan
 
 * Customizable font
 * Customizable font-size
-* Reverse quiz (Guessing hiragana character from romaji)
+* Reverse quiz (guessing hiragana from romaji)
 * Uploading your own data set
 * Saving color & font themes
