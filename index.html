@@ -36,6 +36,7 @@
             property="twitter:image"
             content="https://raw.githubusercontent.com/Adfre12yu/learnHiragana/main/images/image.png"
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,7 +52,7 @@
 
     <body id="body">
         <nav>
-            <h1>learnHiragana</h1>
+            <h1 id="test">learnHiragana</h1>
             <i id="options-btn" class="fa-solid fa-gear bruh"></i>
         </nav>
 
@@ -74,18 +75,18 @@
                 <div id="settings">
                     <div class="color">
                         <label for="bg-color">Background Color:</label>
-                        <input type="text" placeholder="#FFFFFF" id="bg-color" />
-                        <input type="color" value="#FFFFFF" id="bg-color-swatch" />
+                        <input type="text" value="#ff7676" id="bg-color" />
+                        <input type="color" value="#ff7676" id="bg-color-swatch" />
                     </div>
                     <div class="color">
                         <label for="sec-color">Secondary Color:</label>
-                        <input type="text" placeholder="#FFFFFF" id="sec-color" />
-                        <input type="color" value="#FFFFFF" id="sec-color-swatch" />
+                        <input type="text" value="#ff5454" id="sec-color" />
+                        <input type="color" value="#ff5454" id="sec-color-swatch" />
                     </div>
                     <div class="color">
                         <label for="sec-color">Text Color:</label>
-                        <input type="text" placeholder="#FFFFFF" id="txt-color" />
-                        <input type="color" value="#FFFFFF" id="txt-color-swatch" />
+                        <input type="text" value="#ffffff" id="txt-color" />
+                        <input type="color" value="#ffffff" id="txt-color-swatch" />
                     </div>
                 </div>
                 <button id="reset-btn">Reset</button>

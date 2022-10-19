@@ -21,7 +21,7 @@ const reversed = Object.fromEntries(Object.entries(questions).map(([key, value])
 
 const documentHeight = () => {
     const doc = document.documentElement;
-    doc.style.setProperty("--doc-height", `${window.innerHeight}px`);
+    doc.style.setProperty("--doc-height", `${doc.clientHeight}px`);
 };
 
 function newQuestion() {
@@ -139,16 +139,15 @@ closeBtn.addEventListener("click", function () {
     overlay.style.visibility = "hidden";
 });
 resetBtn.addEventListener("click", () => {
-    document.documentElement.style.setProperty("--main-color", "#ff7676");
-    document.documentElement.style.setProperty("--secondary-color", "#ff5454");
-    document.documentElement.style.setProperty("--text-color", "#ffffff");
-    localStorage.setItem("--main-color", "#ff7676");
-    localStorage.setItem("--secondary-color", "#ff5454");
-    localStorage.setItem("--text-color", "#ffffff");
+    bgColor.value = "#ff7676";
+    secColor.value = "#ff5454";
+    txtColor.value = "#ffffff";
+    changeColor(bgColor, bgColorSwatch, true, "--main-color");
+    changeColor(secColor, secColorSwatch, true, "--secondary-color");
+    changeColor(txtColor, txtColorSwatch, true, "--text-color");
 });
 
 window.addEventListener("resize", documentHeight);
-window.addEventListener("orientationchange", documentHeight);
 
 loadColor();
 newQuestion();
