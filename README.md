@@ -18,4 +18,3 @@ This project takes a simple and minimalist approach to teaching japanese hiragan
 * Reverse quiz (guessing hiragana from romaji)
 * Uploading your own data set
 * Saving color & font themes
-* Katakana data set
