@@ -23,6 +23,7 @@ body {
     height: 100vh;
     height: var(--doc-height);
     background-color: var(--main-color);
+    transition: background-color 300ms;
 }
 
 html {
@@ -41,6 +42,7 @@ i {
     cursor: pointer;
     border-radius: var(--border-rad);
     transition: all 200ms;
+    transition: background 300ms;
 }
 
 #reset-btn:hover {
@@ -58,6 +60,7 @@ i {
     transition: transform 200ms, box-shadow 200ms, opacity 200ms;
     border: none;
     cursor: pointer;
+    transition: background 300ms;
 }
 
 .answer-btn:hover {
@@ -145,7 +148,7 @@ nav {
 }
 
 .content {
-    height: calc(var(--doc-height) - 4rem);
+    height: calc(var(--doc-height) - (2.5 * var(--header-fs)));
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -180,6 +183,7 @@ nav {
     max-width: 800px;
     height: 70%;
     text-align: right;
+    transition: background-color 300ms;
 }
 
 #settings {
@@ -193,6 +197,14 @@ nav {
 }
 
 .color {
+    width: 100%;
+    max-width: 180px;
+    display: flex;
+    margin: 0.5rem 0;
+    justify-content: space-between;
+}
+
+.toggle {
     width: 100%;
     max-width: 180px;
     display: flex;
@@ -215,33 +227,103 @@ input[type="text"] {
     border-radius: var(--border-rad);
     width: 100px;
     background-color: var(--secondary-color);
+    transition: background-color 300ms;
 }
 
 input[type="color"] {
     width: 1.5rem;
     height: 1.5rem;
     vertical-align: middle;
-    border: none;
+    border: 2px red solid;
     border-radius: var(--border-rad);
     cursor: pointer;
     margin: 0 0.5rem;
     box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.05);
     -webkit-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.05);
     -moz-box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.05);
+    transition: 300ms;
 }
 
 input[type="color"]::-moz-color-swatch {
     border: none;
-    border-radius: var(--border-rad);
+    border-radius: 4px;
+    transition: 300ms;
 }
 
 input[type="color"]::-webkit-color-swatch {
     border: none;
-    border-radius: var(--border-rad);
+    border-radius: 4px;
+    transition: 300ms;
 }
 
 input[type="color"]::-webkit-color-swatch-wrapper {
     padding: 0;
+    transition: 300ms;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 2.5rem;
+    height: 1.4rem;
+    flex-grow: 0;
+    flex-basis: auto;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(203, 203, 203);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1.1rem;
+    width: 1.1rem;
+    left: 0.15rem;
+    bottom: 0.15rem;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #2196f3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(18px);
+    -ms-transform: translateX(18px);
+    transform: translateX(18px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 1.5rem;
+}
+
+.slider.round:before {
+    border-radius: 50%;
 }
 
 #nav-bar {
@@ -258,6 +340,8 @@ input[type="color"]::-webkit-color-swatch-wrapper {
     padding: 1rem;
     border-radius: var(--border-rad);
     background-color: var(--secondary-color);
+    transition: background-color 300ms;
+
     box-shadow: 0px 0px 40px 7px rgba(0, 0, 0, 0.349);
     animation: pop-up 1.5s;
 }
