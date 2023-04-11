@@ -10,6 +10,7 @@ This project takes a simple and minimalist approach to teaching japanese hiragan
 * Customizable background color
 * Customizable secondary color
 * Customizable text color
+* Katakana Dataset
 
 ## Features to come
 
