@@ -1,3 +1,4 @@
+import data from "./data.js";
 import questions from "./data.js";
 import questionsKata from "./katakana-data.js";
 const questionEl = document.getElementById("question-el");
@@ -13,13 +14,15 @@ const txtColorSwatch = document.getElementById("txt-color-swatch");
 const resetBtn = document.getElementById("reset-btn");
 const error = document.getElementById("error");
 const katakanaToggle = document.getElementById("katakana-toggle");
+const flipperToggle = document.getElementById("flipper-toggle");
 const regex = /^#(?:[0-9a-f]{6})$/i;
 const correctAu = new Audio("audio/correct.wav");
 const wrongAu = new Audio("audio/wrong.wav");
 let canAnswer = true;
 let rightBtn = 0;
+let dataset = questions;
 
-const reversed = Object.fromEntries(Object.entries(questions).map(([key, value]) => [value, key]));
+let reversed = Object.fromEntries(Object.entries(questions).map(([key, value]) => [value, key]));
 const reversedKata = Object.fromEntries(
     Object.entries(questionsKata).map(([key, value]) => [value, key])
 );
@@ -30,10 +33,6 @@ const documentHeight = () => {
 };
 
 function newQuestion() {
-    let dataset = questions;
-    let reverse = reversed;
-    localStorage.getItem("katakana") == "true" ? (dataset = questionsKata) : (dataset = questions);
-    localStorage.getItem("katakana") == "true" ? (reverse = reversedKata) : (reverse = reversed);
     answers[rightBtn].style.boxShadow = "none";
     let question = Math.floor(Math.random() * 71);
     rightBtn = Math.floor(Math.random() * 4);
@@ -49,7 +48,7 @@ function newQuestion() {
             copy.splice(wrongAnswer, 1);
         }
     }
-    questionEl.textContent = reverse[answers[rightBtn].textContent];
+    questionEl.textContent = reversed[answers[rightBtn].textContent];
 }
 
 function answer(correct) {
@@ -66,17 +65,15 @@ function answer(correct) {
     }, 600);
 }
 
-function loadDataset() {
-    if (katakanaToggle.checked) {
-        localStorage.setItem("--main-color", "#45b8f5");
-        localStorage.setItem("--secondary-color", "#21aaf3");
-        localStorage.setItem("--text-color", "#ffffff");
-        localStorage.setItem("katakana", katakanaToggle.checked);
+function loadDataset(data) {
+    localStorage.setItem("katakana", katakanaToggle.checked);
+    localStorage.setItem("flipped", flipperToggle.checked);
+    if (!flipperToggle.checked) {
+        dataset = data;
+        reversed = Object.fromEntries(Object.entries(data).map(([key, value]) => [value, key]));
     } else {
-        localStorage.setItem("--main-color", "#ff7676");
-        localStorage.setItem("--secondary-color", "#ff5454");
-        localStorage.setItem("--text-color", "#ffffff");
-        localStorage.setItem("katakana", false);
+        dataset = Object.fromEntries(Object.entries(data).map(([key, value]) => [value, key]));
+        reversed = data;
     }
     loadColor();
     newQuestion();
@@ -100,29 +97,39 @@ function changeColor(input, swatch, calledFromInput, value) {
 }
 
 function loadColor() {
-    if (localStorage.getItem("--main-color") != null) {
-        let mainColor = localStorage.getItem("--main-color");
-        document.documentElement.style.setProperty("--main-color", mainColor);
-        bgColor.value = mainColor;
-        bgColorSwatch.value = mainColor;
-        bgColorSwatch.style.borderColor = hexToHSL(mainColor);
-    }
-    if (localStorage.getItem("--secondary-color") != null) {
-        let secondaryColor = localStorage.getItem("--secondary-color");
-        document.documentElement.style.setProperty("--secondary-color", secondaryColor);
-        secColor.value = secondaryColor;
-        secColorSwatch.value = secondaryColor;
-        secColorSwatch.style.borderColor = hexToHSL(secondaryColor);
-    }
+    let mainColor =
+        localStorage.getItem("--main-color") != "null"
+            ? localStorage.getItem("--main-color")
+            : katakanaToggle.checked
+            ? "#45b8f5"
+            : "#ff7676";
+    document.documentElement.style.setProperty("--main-color", mainColor);
+    bgColor.value = mainColor;
+    bgColorSwatch.value = mainColor;
+    bgColorSwatch.style.borderColor = hexToHSL(mainColor);
 
-    if (localStorage.getItem("--text-color") != null) {
-        let textColor = localStorage.getItem("--text-color");
-        document.documentElement.style.setProperty("--text-color", textColor);
-        txtColor.value = textColor;
-        txtColorSwatch.value = textColor;
-        txtColorSwatch.style.borderColor = hexToHSL(textColor);
-    }
+    let secondaryColor =
+        localStorage.getItem("--secondary-color") != "null"
+            ? localStorage.getItem("--secondary-color")
+            : katakanaToggle.checked
+            ? "#21aaf3"
+            : "#ff5454";
+    document.documentElement.style.setProperty("--secondary-color", secondaryColor);
+    secColor.value = secondaryColor;
+    secColorSwatch.value = secondaryColor;
+    secColorSwatch.style.borderColor = hexToHSL(secondaryColor);
+
+    let textColor =
+        localStorage.getItem("--text-color") != "null"
+            ? localStorage.getItem("--text-color")
+            : "#ffffff";
+    document.documentElement.style.setProperty("--text-color", textColor);
+    txtColor.value = textColor;
+    txtColorSwatch.value = textColor;
+    txtColorSwatch.style.borderColor = hexToHSL(textColor);
+
     katakanaToggle.checked = JSON.parse(localStorage.getItem("katakana"));
+    flipperToggle.checked = JSON.parse(localStorage.getItem("flipped"));
 }
 
 function hexToHSL(H) {
@@ -201,7 +208,11 @@ txtColor.addEventListener("change", () => {
 });
 
 katakanaToggle.addEventListener("change", () => {
-    loadDataset();
+    katakanaToggle.checked ? loadDataset(questionsKata) : loadDataset(questions);
+});
+
+flipperToggle.addEventListener("change", () => {
+    katakanaToggle.checked ? loadDataset(questionsKata) : loadDataset(questions);
 });
 
 optionsBtn.addEventListener("click", function () {
@@ -217,11 +228,17 @@ resetBtn.addEventListener("click", () => {
     localStorage.setItem("--secondary-color", "#ff5454");
     localStorage.setItem("--text-color", "#ffffff");
     localStorage.setItem("katakana", false);
+    localStorage.setItem("flipped", false);
+
     loadColor();
+    localStorage.setItem("--main-color", null);
+    localStorage.setItem("--secondary-color", null);
+    localStorage.setItem("--text-color", null);
 });
 
 window.addEventListener("resize", documentHeight);
 
+katakanaToggle.checked ? loadDataset(questionsKata) : loadDataset(questions);
 loadColor();
 newQuestion();
 documentHeight();
