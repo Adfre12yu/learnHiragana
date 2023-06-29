@@ -34,7 +34,7 @@ const documentHeight = () => {
 
 function newQuestion() {
     answers[rightBtn].style.boxShadow = "none";
-    let question = Math.floor(Math.random() * 71);
+    let question = Math.floor(Math.random() * Object.values(dataset).length);
     rightBtn = Math.floor(Math.random() * 4);
     let copy = JSON.parse(JSON.stringify(Object.values(dataset)));
     copy.splice(question, 1);
@@ -98,7 +98,7 @@ function changeColor(input, swatch, calledFromInput, value) {
 
 function loadColor() {
     let mainColor =
-        localStorage.getItem("--main-color") != "null"
+        localStorage.getItem("--main-color") != null
             ? localStorage.getItem("--main-color")
             : katakanaToggle.checked
             ? "#45b8f5"
@@ -109,7 +109,7 @@ function loadColor() {
     bgColorSwatch.style.borderColor = hexToHSL(mainColor);
 
     let secondaryColor =
-        localStorage.getItem("--secondary-color") != "null"
+        localStorage.getItem("--secondary-color") != null
             ? localStorage.getItem("--secondary-color")
             : katakanaToggle.checked
             ? "#21aaf3"
@@ -120,7 +120,7 @@ function loadColor() {
     secColorSwatch.style.borderColor = hexToHSL(secondaryColor);
 
     let textColor =
-        localStorage.getItem("--text-color") != "null"
+        localStorage.getItem("--text-color") != null
             ? localStorage.getItem("--text-color")
             : "#ffffff";
     document.documentElement.style.setProperty("--text-color", textColor);
@@ -231,9 +231,9 @@ resetBtn.addEventListener("click", () => {
     localStorage.setItem("flipped", false);
 
     loadColor();
-    localStorage.setItem("--main-color", null);
-    localStorage.setItem("--secondary-color", null);
-    localStorage.setItem("--text-color", null);
+    localStorage.removeItem("--main-color");
+    localStorage.removeItem("--secondary-color");
+    localStorage.removeItem("--text-color");
 });
 
 window.addEventListener("resize", documentHeight);
