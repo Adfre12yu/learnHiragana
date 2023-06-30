@@ -60,7 +60,7 @@ i {
     transition: transform 200ms, box-shadow 200ms, opacity 200ms;
     border: none;
     cursor: pointer;
-    transition: background 300ms;
+    transition: all 300ms;
 }
 
 .answer-btn:hover {
